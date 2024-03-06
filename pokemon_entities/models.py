@@ -13,7 +13,7 @@ class Pokemon(models.Model):
     description = models.TextField('Описание', null=True, blank=True)
     image = models.ImageField(
         'Картинка',
-        upload_to='pokemon_photos',
+        upload_to='pokemon_images',
         null=True,
         blank=True
     )
@@ -22,7 +22,8 @@ class Pokemon(models.Model):
         on_delete=models.SET_NULL,
         related_name='next_evolution',
         verbose_name='Из кого эволюционирует',
-        null=True
+        null=True,
+        blank=True
     )
 
     def __str__(self) -> str:
