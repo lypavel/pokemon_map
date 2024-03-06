@@ -4,6 +4,7 @@ from django.utils.timezone import now
 
 class Pokemon(models.Model):
     title = models.CharField(max_length=200)
+    description = models.TextField(null=True, blank=True)
     image = models.ImageField(
         upload_to='pokemon_photos',
         null=True,
