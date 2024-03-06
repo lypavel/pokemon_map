@@ -3,7 +3,7 @@ from django.utils.timezone import now
 
 
 class Pokemon(models.Model):
-    title = models.CharField('Имя на русском', max_length=200)
+    title = models.CharField('Имя (на русском)', max_length=200)
     title_en = models.CharField(
         'Имя (на английском)',
         max_length=200,
@@ -39,13 +39,11 @@ class PokemonEntity(models.Model):
     lon = models.FloatField('Долгота')
     appeared_at = models.DateTimeField(
         'Дата появления',
-        default=now,
-        blank=True
+        default=now
     )
     disappeared_at = models.DateTimeField(
         'Дата исчезновения',
-        default=now,
-        blank=True
+        default=now
     )
     level = models.IntegerField('Уровень', null=True, blank=True)
     health = models.IntegerField('Здоровье', null=True, blank=True)
@@ -54,4 +52,4 @@ class PokemonEntity(models.Model):
     stamina = models.IntegerField('Выносливость', null=True, blank=True)
 
     def __str__(self) -> str:
-        return f'{self.pokemon.title} at {self.lat}, {self.lon}'
+        return f'{self.pokemon.title} на {self.lat}, {self.lon}'
