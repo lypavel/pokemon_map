@@ -12,6 +12,11 @@ class Pokemon(models.Model):
         null=True,
         blank=True
     )
+    previous_evolution = models.ForeignKey(
+        "self",
+        on_delete=models.SET_NULL,
+        null=True
+    )
 
     def __str__(self) -> str:
         return self.title
