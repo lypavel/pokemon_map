@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.timezone import now
 
 
 class Pokemon(models.Model):
@@ -40,12 +39,10 @@ class PokemonEntity(models.Model):
     lat = models.FloatField('Широта')
     lon = models.FloatField('Долгота')
     appeared_at = models.DateTimeField(
-        'Дата появления',
-        default=now
+        'Дата появления'
     )
     disappeared_at = models.DateTimeField(
-        'Дата исчезновения',
-        default=now
+        'Дата исчезновения'
     )
     level = models.IntegerField('Уровень', null=True, blank=True)
     health = models.IntegerField('Здоровье', null=True, blank=True)
