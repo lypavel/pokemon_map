@@ -72,8 +72,6 @@ def show_all_pokemons(request):
 def show_pokemon(request, pokemon_id):
     pokemon = get_object_or_404(Pokemon, id=pokemon_id)
     img_url = get_pokemon_image(request, pokemon)
-    next_evolution = pokemon.next_evolutions.first()
-
     pokemon_properties = {
         'pokemon_id': pokemon_id,
         'title_ru': pokemon.title,
@@ -90,6 +88,7 @@ def show_pokemon(request, pokemon_id):
             'img_url': get_pokemon_image(request, pokemon.previous_evolution)
         }
 
+    next_evolution = pokemon.next_evolutions.first()
     if next_evolution:
         pokemon_properties['next_evolution'] = {
             'pokemon_id': next_evolution.id,
